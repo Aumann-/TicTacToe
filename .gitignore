@@ -182,6 +182,9 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
+# compiled executable
+*.exe
+
 
 #############
 ## Python
