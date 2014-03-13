@@ -9,12 +9,17 @@ const int ROW = 3, COLUMN = 3;
 
 char board[ROW][COLUMN];
 
+//initialize board
 void setBoard();
+//draw board to screen
 void drawBoard();
+//make a move
 void Move();
+//Not implemented
 void checkWin();
 void Done();
 
+//don't care that this is bad practice
 char currentSym = 'X';
 int moves = 0;
 
@@ -24,7 +29,7 @@ int main()
 	setBoard();
 	drawBoard();
 	
-	
+	//go til board is full
 	while (moves < (ROW*COLUMN))
 	{
 		Move();
@@ -47,9 +52,6 @@ void setBoard()
 	
 }
 
-
-
-
 void drawBoard()
 {
 	for (int i = 0; i < ROW; i++)
@@ -65,20 +67,20 @@ void drawBoard()
 
 void Move()
 {
+	//made static to prevent too much overhead;
 	static int row = rand() % ROW;
-	static int col = rand() % COLUMN;
-	
-	
+	static int col = rand() % COLUMN;	
 	
 	while (board[row][col] != '*')
 	{
 		row = rand() % ROW;
 		col = rand() % COLUMN;
 	}
+	
 	board[row][col] = currentSym;
 	moves++;
 	
-	
+	//change symbol for next turn
 	if (currentSym == 'X')
 		currentSym = 'O';
 	else
